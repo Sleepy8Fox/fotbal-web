@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mládež TJ KOVOHUŤĚ Podlesí/SK LITAVAN Bohutín</title>
+    <link rel="icon" type="image/png" href="../images/mic.png">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <h1>Mládež TJ KOVOHUŤĚ Podlesí/SK LITAVAN Bohutín</h1>
+        <button class="menu-toggle" aria-label="Otevřít menu">☰ Menu</button>
+        <nav>
+            <ul>
+                <li class="znakp"><a href="podlesi.html">Znak Podlesí</a></li>
+                <li><a href="../index.html">Aktuálně</a></li>
+                <li>
+                    <a class ="navbutton" href="#">Zázemí</a>
+                    <ul class="submenu">
+                        <li><a href="bohutin.html">Bohutín</a></li>
+                        <li><a href="podlesi.html">Podlesí</a></li>
+                        <li><a href="lhota.html">Lhota u Příbrami</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a class ="navbutton" href="#">Ročník</a>
+                    <ul class="submenu_r">
+                        <li><a href="dorost.html">Dorost (2009 - 2011)</a></li>
+                        <li><a href="szaci.html">Starší žáci (2011 - 2012)</a></li>
+                        <li><a href="mzaci.html">Mladší žáci (2013 - 2014)</a></li>
+                        <li><a href="sprip.html">Starší přípravka (2015 - 2016)</a></li>
+                        <li><a href="mprip.html">Mladší přípravka (2017 - 2018)</a></li>
+                        <li><a href="miniprip.html">Minipřípravka (2019 a mladší)</a></li>
+                    </ul>
+                </li>
+                <li class="selected"><a href="contact.html">Kontakty</a></li>
+                <li class="znakb"><a href="bohutin.html">Znak Bohutín</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="s_k">
+        <h2>Kontakty</h2>
+        <div class="kontakty">
+            <div class="kontakty_left">
+                <h3>Předseda oddílu SK Litavan Bohutín:</h3>
+                <h3>Jan Bittner, tel: 737/476622</h3>
+            </div>
+            <div class="kontakty_right">
+                <h3>Předseda oddílu TJ Kovohutě Podlesí:</h3>
+                <h3>Radim Černohorský, tel: 723/475052</h3>
+            </div>
+        </div>
+        <div class="kontakty_middle">
+                <h3>Koordinátor mládeže:</h3>
+                <h3>Lucie Branžovská, tel: 728/339365; mladez.bp@seznam.cz</h3>
+        </div>
+        <h2 class="space">Členské příspěvky</h2>
+        <div class="prispevky">
+            <h3>Příspěvky: 500 Kč září - červen</h3>
+            <h3>Příspěvky pro sourozence: 750 Kč září - červen</h3>
+            <ul>
+                <li>
+                    <h3>první dítě platí plnou částku: 500 Kč</h3>
+                </li>
+                <li>
+                    <h3>druhé dítě platí polovinu částky: 250 Kč</h3>
+                </li>
+            </ul>
+            <h3>Příspěvky za zimní přípravu: jednorázová částka 1000 Kč (platí pro všechny stejně)</h3>
+            <h3>Kam a jak posílat:</h3>
+            <ul>
+                <li>
+                    <h3>číslo účtu: 126236684/0600</h3>
+                </li>
+                <li>
+                    <h3>do poznámky uvést: jméno a příjmení dítěte + poslední dvojčíslí roku narození; př. Jan Buk 10</h3>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <footer>
+        <div class="footer-content">
+        <p>© 2025 TJ KOVOHUŤĚ Podlesí / SK LITAVAN Bohutín</p>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const navToggle = document.querySelector('.menu-toggle');
+            const navMenu = document.querySelector('nav ul');
+
+            navToggle.addEventListener('click', function () {
+                navMenu.classList.toggle('show');
+            });
+
+            const buttons = document.querySelectorAll('.navbutton');
+            buttons.forEach(button => {
+                button.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const parent = button.parentElement;
+                    document.querySelectorAll('nav ul li.active').forEach(item => {
+                        if (item !== parent) item.classList.remove('active');
+                    });
+                    parent.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

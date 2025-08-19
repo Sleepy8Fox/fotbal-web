@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mládež TJ KOVOHUŤĚ Podlesí/SK LITAVAN Bohutín</title>
+    <link rel="icon" type="image/png" href="../images/mic.png">
+    <link rel="stylesheet" href="../styles.css">
+    <!-- Lightbox2 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/lightbox2@2.11.4/dist/css/lightbox.min.css" rel="stylesheet" />
+</head>
+<body>
+    <header>
+        <h1>Mládež TJ KOVOHUŤĚ Podlesí/SK LITAVAN Bohutín</h1>
+        <button class="menu-toggle" aria-label="Otevřít menu">☰ Menu</button>
+        <nav>
+            <ul>
+                <li class="znakp"><a href="podlesi.html">Znak Podlesí</a></li>
+                <li><a href="../index.html">Aktuálně</a></li>
+                <li>
+                    <a class ="navbutton selected" href="#">Zázemí</a>
+                    <ul class="submenu">
+                        <li><a href="bohutin.html">Bohutín</a></li>
+                        <li class="selected"><a href="podlesi.html">Podlesí</a></li>
+                        <li><a href="lhota.html">Lhota u Příbrami</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a class ="navbutton" href="#">Ročník</a>
+                    <ul class="submenu_r">
+                        <li><a href="dorost.html">Dorost (2009 - 2011)</a></li>
+                        <li><a href="szaci.html">Starší žáci (2011 - 2012)</a></li>
+                        <li><a href="mzaci.html">Mladší žáci (2013 - 2014)</a></li>
+                        <li><a href="sprip.html">Starší přípravka (2015 - 2016)</a></li>
+                        <li><a href="mprip.html">Mladší přípravka (2017 - 2018)</a></li>
+                        <li><a href="miniprip.html">Minipřípravka (2019 a mladší)</a></li>
+                    </ul>
+                </li>
+                <li><a href="contact.html">Kontakty</a></li>
+                <li class="znakb"><a href="bohutin.html">Znak Bohutín</a></li>
+            </ul>
+        </nav>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const navToggle = document.querySelector('.menu-toggle');
+                const navMenu = document.querySelector('nav ul');
+
+                navToggle.addEventListener('click', function () {
+                    navMenu.classList.toggle('show');
+                });
+
+                const buttons = document.querySelectorAll('.navbutton');
+                buttons.forEach(button => {
+                    button.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        const parent = button.parentElement;
+                        document.querySelectorAll('nav ul li.active').forEach(item => {
+                            if (item !== parent) item.classList.remove('active');
+                        });
+                        parent.classList.toggle('active');
+                    });
+                });
+            });
+        </script>
+    </header>
+    <section class="zazemi">
+        <h2>Podlesí</h2>
+        <div class="galerie">
+            <a href="../images/podlesi1.jpg" data-lightbox="podlesi"><img src="../images/podlesi1.jpg" alt="zazemi 1" width="600" /></a>
+            <a href="../images/podlesi2.jpg" data-lightbox="podlesi"><img src="../images/podlesi2.jpg" alt="zazemi 2" width="600" /></a>
+            <a href="../images/podlesi3.jpg" data-lightbox="podlesi"><img src="../images/podlesi3.jpg" alt="zazemi 3" width="600" /></a> 
+        </div>
+        <div class="galerie">
+            <a href="../images/podlesiu.jpg" data-lightbox="podlesi"><img src="../images/podlesiu.jpg" alt="zazemi 4" width="600" /></a>
+            <a href="../images/podlesidh.jpg" data-lightbox="podlesi"><img src="../images/podlesidh.jpg" alt="zazemi 5" width="600" /></a> 
+        </div>
+    </section>
+    <footer>
+        <div class="footer-content">
+        <p>© 2025 TJ KOVOHUŤĚ Podlesí / SK LITAVAN Bohutín</p>
+    </footer>
+    <!-- Lightbox2 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/lightbox2@2.11.4/dist/js/lightbox-plus-jquery.min.js"></script>
+</body>
+</html>
