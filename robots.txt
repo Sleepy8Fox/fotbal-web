@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sleepy8fox.github.io/fotbal-web/sitemap.xml
