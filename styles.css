@@ -142,7 +142,8 @@ nav ul li .submenu_r li {
 }
 
 nav ul li.active .submenu_r {
-    display: block;
+    display: flex;
+    flex-direction: column;
 }
 
 nav .znakp a {
@@ -299,6 +300,28 @@ section {
     padding: 10px 20px;
 }
 
+.slider {
+  position: relative;
+  padding: 35% 0px 0px 0px;
+  background: rgb(193, 204, 71);
+  width: 90%;
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  width: 100%;          
+  height: auto;         
+  left: 10%;
+  top: 0;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.slide.active {
+  opacity: 1;
+}
+
 .zapasy-header {
   display: flex;
   justify-content: space-between;
@@ -424,6 +447,12 @@ section {
     gap: 1rem;
     justify-content: center;
     margin-top: 2rem;
+}
+
+.text {
+    max-width: 800px;
+    margin: 0 auto;
+    padding-bottom: 20px;
 }
 
 @media (max-width: 768px) {
