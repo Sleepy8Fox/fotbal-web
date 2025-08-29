@@ -40,12 +40,13 @@
                 <li>
                     <a class ="navbutton" href="#">Týmy</a>
                     <ul class="submenu_r">
-                        <li><a href="pages/dorost.html">Dorost (2009 - 2011)</a></li>
-                        <li><a href="pages/szaci.html">Starší žáci (2011 - 2012)</a></li>
-                        <li><a href="pages/mzaci.html">Mladší žáci (2013 - 2014)</a></li>
-                        <li><a href="pages/sprip.html">Starší přípravka (2015 - 2016)</a></li>
-                        <li><a href="pages/mprip.html">Mladší přípravka (2017 - 2018)</a></li>
-                        <li><a href="pages/miniprip.html">Minipřípravka (2019 a mladší)</a></li>
+                        <li><a href="pages/dorost.html">Dorost</a></li>
+                        <li><a href="pages/szaci.html">Starší žáci</a></li>
+                        <li><a href="pages/mzaci.html">Mladší žáci</a></li>
+                        <li><a href="pages/sprip.html">Starší přípravka</a></li>
+                        <li><a href="pages/mprip.html">Mladší přípravka</a></li>
+                        <li><a href="pages/miniprip.html">Minipřípravka</a></li>
+                        <li><a href="pages/indi.html">Individuální tréninky</a></li>
                     </ul>
                 </li>
                 <li><a href="pages/contact.html">Kontakty</a></li>
@@ -65,6 +66,18 @@
             <button type="submit">Přidat zápas</button>
         </form>
     </div>
+    <section>
+        <div class="slider">
+            <img src="images/bohutin1.jpg" class="slide active">
+            <img src="images/bohutin2.jpg" class="slide">
+            <img src="images/bohutin3.jpg" class="slide">
+            <img src="images/podlesi1.jpg" class="slide">
+            <img src="images/podlesi2.jpg" class="slide">
+            <img src="images/podlesi3.jpg" class="slide">
+            <img src="images/podlesiu.jpg" class="slide">
+            <img src="images/podlesidh.jpg" class="slide">
+        </div>
+    </section>
     <section class="zapasy-container">
         <!-- Levá strana – výsledky -->
         <div class="zapasy-box">
@@ -126,6 +139,18 @@
         };
 
     firebase.initializeApp(firebaseConfig);
+    </script>
+    <script>
+        let index = 0;
+        const slides = document.querySelectorAll(".slide");
+
+        function showNextSlide() {
+            slides[index].classList.remove("active");
+            index = (index + 1) % slides.length;
+            slides[index].classList.add("active");
+        }
+
+        setInterval(showNextSlide, 5000); // 3 sekundy
     </script>
     <script>
         const db = firebase.database();
