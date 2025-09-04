@@ -1,17 +1,20 @@
 body {
-    background-image: url("images/fotbal.jpg");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    background-position: center;
+    background-image: url("images/mic.jpg");
+    background-repeat: no-repeat;   /* nezopakuje obrázek */
+    background-size: cover;        /* roztáhne na celou stránku */
+    background-position: center;   /* vystředí obrázek */
     font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
     color: black;
+    text-shadow: 1px 1px 0 black, 
+               -1px -1px 0 black, 
+               -1px 1px 0 black, 
+               1px -1px 0 black;
     margin: 0px;
     padding: 0px;
 }
 
 header {
-    background: rgb(193, 204, 71);
+    
     color: white;
     margin: 20px 20px 0px 20px;
     padding: 10px 20px;
@@ -20,63 +23,16 @@ header {
     border-top-right-radius: 15px;
 }
 
-.login-container {
-  display: flex;
-  justify-content: flex-end;
-}
+header h1 {
 
-/* Hlavní formulář */
-#login-form {
-  background-color: #383838;
-  padding: 0 10px 5px 5px;
-  border-radius: 8px;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  width: 200px; /* fixní šířka pro rovnost polí */
-}
-
-#login-form h3 {
-  margin: 5px 0px 5px 0px;
-}
-
-/* Všechna vstupní pole */
-#login-form input {
-  padding: 0.5rem;
-  font-size: 1rem;
-  border: none;
-  border-radius: 4px;
-  max-width: 100px;
-  box-sizing: border-box;
-}
-
-.email {
-  margin: 0px 200px 5px 0px;
-}
-
-/* Řádek s heslem + tlačítkem */
-.password-row {
-  display: flex;
-  gap: 0.5rem;
-}
-
-/* Tlačítko přihlášení */
-#login-form button {
-  padding: 5px 10px;
-  font-size: 1rem;
-  background-color: #aaa;
-  color: black;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  white-space: nowrap;
+    font-size: 48px; /* zvětší text */
 }
 
 nav {
-    background: rgb(168, 84, 25);
+    background: white;
     text-align: center;
     border-radius: 80px;
-    font-size: larger;
+    font-size: 34px; /* zvětší text */
 }
 
 nav ul {
@@ -100,6 +56,17 @@ nav a {
 
 nav .selected {
     font-weight: bold;
+    background: linear-gradient(to right, green, red);
+    background-clip: border-box;
+    -webkit-background-clip: text; /* ořezání gradientu do textu */
+    -webkit-text-fill-color: transparent; /* text sám o sobě průhledný */
+    text-shadow: none;
+}
+
+nav .selected a {
+    font-weight: bold;
+    color: black;
+    text-shadow: none;
 }
 
 .submenu {
@@ -107,7 +74,7 @@ nav .selected {
     position: absolute;
     top: 200%;
     left: -15%;
-    background-color: rgb(100, 45, 6);
+    background-color: white;
     padding: 0px 10px 10px 10px;
     margin: 0;
     z-index: 1000;
@@ -118,7 +85,7 @@ nav .selected {
     position: absolute;
     top: 200%;
     left: -195%;
-    background-color: rgb(100, 45, 6);
+    background-color: white;
     padding: 0px 20px 20px 20px;
     margin: 0;
     z-index: 1000;
@@ -178,22 +145,14 @@ nav a:hover {
 
 .menu-toggle {
   display: none;
-  background-color: rgb(168, 84, 25);
-  color: white;
+  background-color: white;
+  color: black;
   font-size: 1.2rem;
   padding: 0.5rem 1rem;
   border: none;
   margin: 10px 20px;
   cursor: pointer;
   border-radius: 8px;
-}
-
-.zapasy-box h2 {
-  text-align: center;
-}
-
-.sponzori-box h2 {
-  text-align: center;
 }
 
 .zazemi h2 {
@@ -242,7 +201,7 @@ nav a:hover {
 
   nav {
     border-radius: 0; /* zruší zaoblení, pokud chceš */
-    max-width: 200px; /* omezí šířku menu */
+    max-width: 400px; /* omezí šířku menu */
     margin: left; /* vycentruje menu */
   }
 
@@ -264,14 +223,14 @@ nav a:hover {
 
   .submenu {
     position: static;
-    background-color: rgb(100, 45, 6);
+    background-color: white;
     padding: 0;
     margin: 0 0 0 1rem;
   }
 
   .submenu_r {
     position: static;
-    background-color: rgb(100, 45, 6);
+    background-color: white;
     padding: 0;
     margin: 0 0 0 1rem;
   }
@@ -287,14 +246,6 @@ nav a:hover {
 }
 
 section {
-    background: rgb(193, 204, 71);
-    color: white;
-    margin: 0px 20px 0px 20px;
-    padding: 10px 20px;
-}
-
-.admin {
-    background: rgb(193, 204, 71);
     color: white;
     margin: 0px 20px 0px 20px;
     padding: 10px 20px;
@@ -303,7 +254,7 @@ section {
 .slider {
   position: relative;
   padding: 35% 0px 0px 0px;
-  background: rgb(193, 204, 71);
+  
   width: 90%;
   overflow: hidden;
 }
@@ -320,80 +271,6 @@ section {
 
 .slide.active {
   opacity: 1;
-}
-
-.zapasy-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 0;
-  gap: 2rem;
-  flex-wrap: wrap; /* aby se na malém displeji rozpadlo pod sebe */
-}
-
-.zapasy-header h2 {
-  margin: 0;
-}
-
-.zapas-blok {
-    margin-bottom: 1rem;
-}
-
-.rok {
-    max-width: 600px;
-    margin: auto;
-    font-size: 0.95rem;
-    background-color: rgb(168, 84, 25);
-    padding: 0.5rem 1rem;
-}
-
-.zapas {
-    display: flex;
-    max-width: 600px;
-    height: 100px;
-    margin: auto;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0.5rem 1rem;
-    background-color: rgb(168, 84, 25);
-    font-weight: bold;
-    font-size: 1.1rem;
-}
-
-.zapasy-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: stretch;
-  padding: 2rem;
-  gap: 2rem;
-}
-
-/* Levý box */
-.zapasy-box {
-  flex: 5;
-}
-
-/* Pravý box */
-.sponzori-box {
-  flex: 3;
-}
-
-/* Svislá čára uprostřed */
-.vert-divider {
-  width: 4px;
-  background: black;
-  height: auto;
-}
-
-@media (max-width: 768px) {
-  .zapasy-container {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .vert-divider {
-    display: none;
-  }
 }
 
 .s_k h2 {
@@ -475,8 +352,44 @@ section {
     transform: scale(1.05);
 }
 
+.sponzori {
+    text-align: center;
+}
+
+.sponzori-grid {
+  background: white;
+  display:inline-block;
+  justify-content: center;
+  gap: 2rem; /* mezery mezi logy */
+}
+
+.sponzori-grid img {
+  height: 80px;       /* všechny loga budou stejně vysoká */
+  width: auto;        /* šířka se dopočítá */
+  object-fit: contain; /* udrží proporce */
+  padding: 50px;
+  transition: transform 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .sponzori-grid {
+    display:grid;
+    justify-content: center;
+    gap: 2rem; /* mezery mezi logy */
+  }
+
+  .sponzori-grid img {
+    height: 50px;       /* všechny loga budou stejně vysoká */
+    width: auto;        /* šířka se dopočítá */
+    object-fit: contain; /* udrží proporce */
+    padding: 20px;
+    margin: auto;
+    transition: transform 0.3s ease;
+  }
+}
+
 footer {
-    background: rgb(193, 204, 71);
+
     margin: 0px 20px 20px 20px;
     padding: 10px 20px;
     border-bottom-left-radius: 15px;

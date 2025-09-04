@@ -4,26 +4,13 @@
     <meta name="description" content="Oficiální stránky fotbalového týmu mládeže TJ KOVOHUTĚ Podlesí a SK LITAVAN Bohutín.">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mládež TJ KOVOHUŤĚ Podlesí/SK LITAVAN Bohutín</title>
+    <title>Mládež TJ KOVOHUTĚ Podlesí/SK LITAVAN Bohutín</title>
     <link rel="icon" type="image/png" href="images/mic.png">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <div class="login-container">
-            <form id="login-form">
-                <h3>Přihlášení admina</h3>
-                <div class="email">
-                    <input type="email" id="email" placeholder="Email">
-                </div>
-    
-                <div class="password-row">
-                    <input type="password" id="password" placeholder="Heslo">
-                    <button id="login-btn" type="button">Přihlásit se</button>
-                </div>
-            </form>
-        </div>
-        <h1>Mládež TJ KOVOHUŤĚ Podlesí/SK LITAVAN Bohutín</h1>
+        <h1>Mládež TJ KOVOHUTĚ Podlesí/SK LITAVAN Bohutín</h1>
         <button class="menu-toggle" aria-label="Otevřít menu">☰ Menu</button>
         <nav>
             <ul>
@@ -50,22 +37,11 @@
                     </ul>
                 </li>
                 <li><a href="pages/contact.html">Kontakty</a></li>
+                <li><a href="pages/sponzori.html">Sponzoři</a></li>
                 <li class="znakb"><a href="pages/bohutin.html">Znak Bohutín</a></li>
             </ul>
         </nav>
     </header>
-    <div class="admin" id="admin-controls" style="display:none;">
-        <h3>Admin panel</h3>
-        <button id="logout-btn">Odhlásit se</button>
-        <h3>Přidat zápas</h3>
-        <form id="zapas-form">
-            <input type="text" id="rok" placeholder="Ročník" required>
-            <input type="text" id="domaci" placeholder="Domácí" required>
-            <input type="text" id="skore" placeholder="Skóre (např. 2 : 1)" required>
-            <input type="text" id="hoste" placeholder="Hosté" required>
-            <button type="submit">Přidat zápas</button>
-        </form>
-    </div>
     <section>
         <div class="slider">
             <img src="images/bohutin1.jpg" class="slide active">
@@ -78,32 +54,10 @@
             <img src="images/podlesidh.jpg" class="slide">
         </div>
     </section>
-    <section class="zapasy-container">
-        <!-- Levá strana – výsledky -->
-        <div class="zapasy-box">
-            <h2>Výsledky zápasů</h2>
-            <!-- Sem můžeš vložit výpis zápasů -->
-            <div class="zapas-blok"></div>
-        </div>
-
-        <!-- Oddělovač -->
-        <div class="vert-divider"></div>
-
-        <!-- Pravá strana – sponzoři -->
-        <div class="sponzori-box">
-            <h2>Sponzoři</h2>
-            <!-- TODO sponzoři -->
-        </div>
-    </section>
     <footer>
         <div class="footer-content">
-        <p>© 2025 TJ KOVOHUŤĚ Podlesí / SK LITAVAN Bohutín</p>
+        <p>© 2025 TJ KOVOHUTĚ Podlesí / SK LITAVAN Bohutín</p>
     </footer>
-    <!-- Firebase SDKs -->
-    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
-
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const navToggle = document.querySelector('.menu-toggle');
@@ -128,19 +82,6 @@
     </script>
 
     <script>
-        const firebaseConfig = {
-        apiKey: "AIzaSyBCP2Hp957DSfu0FHjlhovdn0lmGDQOlOo",
-        authDomain: "fotbalovy-tym.firebaseapp.com",
-        databaseURL: "https://fotbalovy-tym-default-rtdb.europe-west1.firebasedatabase.app",
-        projectId: "fotbalovy-tym",
-        storageBucket: "fotbalovy-tym.firebasestorage.app",
-        messagingSenderId: "1023126508249",
-        appId: "1:1023126508249:web:de0e240e881dcfe8e764c8"
-        };
-
-    firebase.initializeApp(firebaseConfig);
-    </script>
-    <script>
         let index = 0;
         const slides = document.querySelectorAll(".slide");
 
@@ -150,98 +91,7 @@
             slides[index].classList.add("active");
         }
 
-        setInterval(showNextSlide, 5000); // 3 sekundy
-    </script>
-    <script>
-        const db = firebase.database();
-        const loginBtn = document.getElementById("login-btn");
-        const emailInput = document.getElementById("email");
-        const passInput = document.getElementById("password");
-        const adminControls = document.getElementById("admin-controls");
-        const loginForm = document.getElementById("login-form");
-        const zapasForm = document.getElementById("zapas-form");
-
-        // Přihlášení
-        loginBtn.addEventListener("click", () => {
-            const email = emailInput.value;
-            const password = passInput.value;
-            firebase.auth().signInWithEmailAndPassword(email, password)
-            .then(() => {
-                adminControls.style.display = "block";
-                loginForm.style.display = "none";
-            })
-            .catch(err => alert("Přihlášení selhalo: " + err.message));
-        });
-
-        const logoutBtn = document.getElementById("logout-btn");
-
-        logoutBtn.addEventListener("click", () => {
-            firebase.auth().signOut()
-            .then(() => {
-                adminControls.style.display = "none";
-                loginForm.style.display = "block";
-                })
-            .catch((error) => {
-                alert("Chyba při odhlašování: " + error.message);
-            });
-        });
-
-        firebase.auth().onAuthStateChanged(user => {
-            if (user) {
-                adminControls.style.display = "block";
-                loginForm.style.display = "none";
-            } else {
-                adminControls.style.display = "none";
-                loginForm.style.display = "block";
-            }
-        });
-
-        // Přidání zápasu
-        zapasForm.addEventListener("submit", (e) => {
-            e.preventDefault();
-            const rok = document.getElementById("rok").value;
-            const domaci = document.getElementById("domaci").value;
-            const skore = document.getElementById("skore").value;
-            const hoste = document.getElementById("hoste").value;
-
-            const novyZapas = db.ref("zapasy").push();
-            novyZapas.set({ rok, domaci, skore, hoste });
-
-            zapasForm.reset();
-        });
-
-        // Výpis zápasů
-        const zapasyContainer = document.querySelector(".zapas-blok");
-        firebase.database().ref("zapasy").on("value", snapshot => {
-            const data = snapshot.val();
-            // Odstranit staré zápasy (ponechá nadpis a formulář)
-            document.querySelectorAll(".zapas-blok.dynamicky").forEach(e => e.remove());
-
-            for (let id in data) {
-                const z = data[id];
-                const blok = document.createElement("div");
-                blok.className = "zapas-blok dynamicky";
-                blok.innerHTML = `
-                <div class="rok">${z.rok}</div>
-                <div class="zapas">
-                <span class="domaci">${z.domaci}</span>
-                <span class="skore">${z.skore}</span>
-                <span class="hoste">${z.hoste}</span>
-                <button class="smazat" data-id="${id}" style="display:none;">🗑️</button>
-                </div>
-                `;
-                zapasyContainer.appendChild(blok);
-            }
-
-            // Zobraz tlačítka pro smazání, pokud je admin přihlášen
-            firebase.auth().onAuthStateChanged(user => {
-                const delBtns = document.querySelectorAll(".smazat");
-                delBtns.forEach(btn => {
-                    btn.style.display = user ? "inline-block" : "none";
-                    btn.onclick = () => db.ref("zapasy/" + btn.dataset.id).remove();
-                });
-            });
-        });
+        setInterval(showNextSlide, 3000); // 3 sekundy
     </script>
 </body>
 </html>
