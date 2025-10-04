@@ -249,9 +249,12 @@ section {
 
 .slider {
   position: relative;
-  padding: 35% 0px 0px 0px;
-  
-  width: 90%;
+  padding: 50% 0px 0px 0px;
+
+  max-width: 1200px;     /* volitelně nastav max. šířku */
+  aspect-ratio: 16 / 9; /* poměr stran slideru, např. 16:9 */
+  left: 8%;
+  width: 100%;
   overflow: hidden;
 }
 
@@ -259,7 +262,6 @@ section {
   position: absolute;
   width: 100%;          
   height: auto;         
-  left: 10%;
   top: 0;
   opacity: 0;
   transition: opacity 1s ease-in-out;
